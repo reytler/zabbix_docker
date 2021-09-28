@@ -2,29 +2,29 @@ version: '3'
 services:
     mysql-zabbix:
       container_name: mysql-zabbix
-      build: ./DockerfileMysql
+      build: ./Dockerfiles/DockerfileMysql
       command: --character-set-server=utf8 --collation-server=utf8_bin --default-authentication-plugin=mysql_native_password
       ports:
         - "3306:3306"
       environment:
         - MYSQL_DATABASE=zabbix
         - MYSQL_USER=zabbix
-        - MYSQL_PASSWORD=
-        - MYSQL_ROOT_PASSWORD=
+        - MYSQL_PASSWORD=Ontech1q2w**
+        - MYSQL_ROOT_PASSWORD=Ontech1q2w**
       networks:
         - zabbix-net
       restart: always
 
     zabbix-java-gateway:
       container_name: zabbix-java-gateway
-      build: ./DockerfileZabbixJavaGw
+      build: ./Dockerfiles/DockerfileZabbixJavaGw
       networks:
         - zabbix-net
       restart: always
 
     zabbix-server:
       container_name: zabbix-server
-      build: ./DockerfileServer
+      build: ./Dockerfiles/DockerfileServer
       ports:
         - "10051:10051"
       environment:
@@ -32,7 +32,17 @@ services:
         - DB_SERVER_HOST=mysql-zabbix
         - MYSQL_DATABASE=zabbix
         - MYSQL_USER=zabbix
-        - MYSQL_PASSWORD=
+        - MYSQL_PASSWORD=Ontech1q2w**
+      volumes:
+        - ./Volumes/alertscripts:/usr/lib/zabbix/alertscripts
+        - ./Volumes/externalscripts:/usr/lib/zabbix/externalscripts
+        - ./Volumes/modules:/var/lib/zabbix/modules
+        - ./Volumes/enc:/var/lib/zabbix/enc
+        - ./Volumes/certs:/var/lib/zabbix/ssl/certs
+        - ./Volumes/keys:/var/lib/zabbix/ssl/keys
+        - ./Volumes/ssl_ca:/var/lib/zabbix/ssl/ssl_ca
+        - ./Volumes/snmptraps:/var/lib/zabbix/snmptraps
+        - ./Volumes/mibs:/var/lib/zabbix/mibs
       networks:
         - zabbix-net
       depends_on:
@@ -41,15 +51,16 @@ services:
     
     zabbix-web:
       container_name: zabbix-web
-      build: ./DockerfileZabbixWeb
+      build: ./Dockerfiles/DockerfileZabbixWeb
       ports: 
         - "8010:8080"
+        - "8443:8443"
       environment:
         - ZBX_SERVER_HOST=zabbix-server
         - DB_SERVER_HOST=mysql-zabbix
         - MYSQL_DATABASE=zabbix
         - MYSQL_USER=zabbix
-        - MYSQL_PASSWORD=
+        - MYSQL_PASSWORD=Ontech1q2w**
         - PHP_TZ=America/Sao_Paulo
       networks:
         - zabbix-net

@@ -32,7 +32,7 @@ services:
         - DB_SERVER_HOST=mysql-zabbix
         - MYSQL_DATABASE=zabbix
         - MYSQL_USER=zabbix
-        - MYSQL_PASSWORD=Ontech1q2w**
+        - MYSQL_PASSWORD=
       volumes:
         - ./Volumes/alertscripts:/usr/lib/zabbix/alertscripts
         - ./Volumes/externalscripts:/usr/lib/zabbix/externalscripts

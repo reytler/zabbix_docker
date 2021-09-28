@@ -9,8 +9,8 @@ services:
       environment:
         - MYSQL_DATABASE=zabbix
         - MYSQL_USER=zabbix
-        - MYSQL_PASSWORD=Ontech1q2w**
-        - MYSQL_ROOT_PASSWORD=Ontech1q2w**
+        - MYSQL_PASSWORD=
+        - MYSQL_ROOT_PASSWORD=
       networks:
         - zabbix-net
       restart: always
@@ -60,7 +60,7 @@ services:
         - DB_SERVER_HOST=mysql-zabbix
         - MYSQL_DATABASE=zabbix
         - MYSQL_USER=zabbix
-        - MYSQL_PASSWORD=Ontech1q2w**
+        - MYSQL_PASSWORD=
         - PHP_TZ=America/Sao_Paulo
       networks:
         - zabbix-net

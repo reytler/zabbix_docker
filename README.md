@@ -7,4 +7,4 @@ Docker-compose para construir uma aplicação Zabbix completa
 >3. ![Alpine Linux](https://img.shields.io/badge/Alpine_Linux-%230D597F.svg?style=for-the-badge&logo=alpine-linux&logoColor=white)
 >4. ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
-> Para usar basta inserir a senha de sua preferência no docker-compose no campo referente e já com o Docker e o Docker-compose instalado, é só entrar na pasta raiz pelo teminal e executar o comando " docker-compose up -d"
+> Para usar basta inserir a senha de sua preferência no docker-compose no campo referente e já com o Docker e o Docker-compose instalado, é só entrar na pasta raiz pelo teminal e executar o comando " docker-compose up -d".
